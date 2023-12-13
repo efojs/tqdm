@@ -319,7 +319,7 @@ class tqdm(Comparable):
         [default: '{l_bar}{bar}{r_bar}'], where
         l_bar='{desc}: {percentage:3.0f}%|' and
         r_bar='| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, '
-            '{rate_fmt}{postfix}]'
+            '{rate_fmt} {postfix}]'
         Possible vars: l_bar, bar, r_bar, n, n_fmt, total, total_fmt,
             percentage, elapsed, elapsed_s, ncols, nrows, desc, unit,
             rate, rate_fmt, rate_noinv, rate_noinv_fmt,
@@ -507,7 +507,7 @@ class tqdm(Comparable):
             [default: '{l_bar}{bar}{r_bar}'], where
             l_bar='{desc}: {percentage:3.0f}%|' and
             r_bar='| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, '
-              '{rate_fmt}{postfix}]'
+              '{rate_fmt} {postfix}]'
             Possible vars: l_bar, bar, r_bar, n, n_fmt, total, total_fmt,
               percentage, elapsed, elapsed_s, ncols, nrows, desc, unit,
               rate, rate_fmt, rate_noinv, rate_noinv_fmt,
@@ -589,7 +589,7 @@ class tqdm(Comparable):
         else:
             l_bar = ''
 
-        r_bar = f'| {n_fmt}/{total_fmt} [{elapsed_str}<{remaining_str}, {rate_fmt}{postfix}]'
+        r_bar = f'| {n_fmt}/{total_fmt} [{elapsed_str}<{remaining_str}, {rate_fmt} {postfix}]'
 
         # Custom bar formatting
         # Populate a dict with all available progress indicators
@@ -661,7 +661,7 @@ class tqdm(Comparable):
         else:
             # no total: no progressbar, ETA, just progress stats
             return (f'{(prefix + ": ") if prefix else ""}'
-                    f'{n_fmt}{unit} [{elapsed_str}, {rate_fmt}{postfix}]')
+                    f'{n_fmt} {unit} [{elapsed_str}, {rate_fmt} {postfix}]')
 
     def __new__(cls, *_, **__):
         instance = object.__new__(cls)
